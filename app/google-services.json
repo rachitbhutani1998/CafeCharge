@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "454633353859",
+    "firebase_url": "https://cafecharge1.firebaseio.com",
+    "project_id": "cafecharge1",
+    "storage_bucket": "cafecharge1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454633353859:android:5fb936f57356a907",
+        "android_client_info": {
+          "package_name": "com.cafedroid.android.cafecharge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454633353859-v3mbud2ca8k9ha05rlb0aov3hcn9f8b4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cafedroid.android.cafecharge",
+            "certificate_hash": "f1b9b88d9fc9cc490684e581dbe2c4df016c8ab1"
+          }
+        },
+        {
+          "client_id": "454633353859-eqfknn9dnga8fvmkd9u49hunh9e8ai0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEeUo7fRg-Csp43RJieW17Tju079DgLoc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454633353859-eqfknn9dnga8fvmkd9u49hunh9e8ai0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

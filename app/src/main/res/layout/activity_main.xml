@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.cafedroid.android.cafecharge.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/card_no"
+            android:inputType="number"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:hint="Card number"
+            android:textColorHint="#afff"
+            android:textColor="@android:color/white"
+            android:background="@drawable/card"/>
+    </LinearLayout>
+
+</RelativeLayout>
