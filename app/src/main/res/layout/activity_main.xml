@@ -26,5 +26,13 @@
             android:textColor="@android:color/white"
             android:background="@drawable/card"/>
     </LinearLayout>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="Log in as worker."
+        android:textColor="@android:color/background_light"
+        android:onClick="workerActivity"/>
 </RelativeLayout>

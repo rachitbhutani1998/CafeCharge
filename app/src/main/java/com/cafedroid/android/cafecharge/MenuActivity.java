@@ -60,7 +60,7 @@ public class MenuActivity extends AppCompatActivity {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                cardValue = dataSnapshot.child(cardNo).getValue(Double.class);
             }
 
             @Override
@@ -123,7 +123,10 @@ public class MenuActivity extends AppCompatActivity {
                     else {
                         cardValue = cardValue - totalBill;
                         mRef.child("Cards").child(cardNo).setValue(cardValue);
-                        Toast.makeText(MenuActivity.this, "Items ordered. Balance left " + cardValue, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MenuActivity.this, "Items ordered. Balance left is \u20B9" + cardValue, Toast.LENGTH_SHORT).show();
+                        orderedItems.clear();
+                        totalBill=0.00;
+                        cartView.setText("Cart: \u20B9" + totalBill);
                     }
                 } else if (totalBill <= 0) {
                     Toast.makeText(MenuActivity.this, "There is nothing in the cart to buy", Toast.LENGTH_SHORT).show();
@@ -150,17 +153,27 @@ public class MenuActivity extends AppCompatActivity {
 
     private void rechargeAttempt() {
         final EditText valueText = new EditText(this);
-
-        valueText.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MenuActivity.this)
+        valueText.setInputType(2);
+        valueText.setBackground(getResources().getDrawable(android.R.drawable.editbox_background_normal));
+        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        valueText.setLayoutParams(params);
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MenuActivity.this,android.R.style.Theme_Material_Light_Dialog_Alert)
                 .setTitle("How much value do you want to put into your card?")
                 .setView(valueText).setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Double value = Double.parseDouble(valueText.getText().toString());
-                        if (Integer.parseInt(valueText.getText().toString()) >= 50 && cardExists) {
-                            mRef.child("Cards").child(cardNo).setValue(cardValue + value);
-                        }
+                        if (!valueText.getText().toString().isEmpty()){
+                            Double value = Double.parseDouble(valueText.getText().toString());
+                            cardValue=cardValue+value;
+                            if (Integer.parseInt(valueText.getText().toString()) >= 50 && cardExists) {
+                                mRef.child("Cards").child(cardNo).setValue(cardValue);
+                                Toast.makeText(MenuActivity.this, "Recharge successful", Toast.LENGTH_SHORT).show();
+                            } else if(!cardExists){
+                                Toast.makeText(MenuActivity.this, "Your card is not registered", Toast.LENGTH_SHORT).show();
+                            } else
+                                Toast.makeText(MenuActivity.this, "Minimum recharge amount is \u20B9 50", Toast.LENGTH_SHORT).show();
+                        } else
+                            Toast.makeText(MenuActivity.this, "Invalid value", Toast.LENGTH_SHORT).show();
                     }
                 });
         AlertDialog dialog = alertBuilder.create();
