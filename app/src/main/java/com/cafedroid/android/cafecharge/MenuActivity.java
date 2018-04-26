@@ -1,6 +1,7 @@
 package com.cafedroid.android.cafecharge;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -127,6 +128,8 @@ public class MenuActivity extends AppCompatActivity {
                         orderedItems.clear();
                         totalBill=0.00;
                         cartView.setText("Cart: \u20B9" + totalBill);
+                        Intent goToBill=new Intent(MenuActivity.this,BillActivity.class);
+                        startActivity(goToBill);
                     }
                 } else if (totalBill <= 0) {
                     Toast.makeText(MenuActivity.this, "There is nothing in the cart to buy", Toast.LENGTH_SHORT).show();

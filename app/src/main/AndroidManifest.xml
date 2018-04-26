@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
-        <activity android:name=".WorkerAuthActivity"></activity>
+        <activity android:name=".WorkerAuthActivity" />
+        <activity android:name=".BillActivity"></activity>
     </application>
 
 </manifest>
